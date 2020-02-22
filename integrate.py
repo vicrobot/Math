@@ -62,6 +62,9 @@ class Integrate:
         self.y = [f(i) for i in self.x]
         
         fig, self.ax = plt.subplots()
+        plt.xlabel('X')
+        plt.ylabel(r'$sin^2(x)$')
+        plt.grid('True')
         def init():
             ax_obj, = self.ax.plot(self.x, self.y)
             return [ax_obj]
@@ -69,13 +72,15 @@ class Integrate:
         def animate(j):
             self.area += self.getArea(j)
             print(f"Area: {self.area:>5.5}")
+            self.ax.title.set_text(f"Area: {self.area:>5.5} sq. units")
             i = j*self.c
-            polygon_obj,=self.ax.fill([i,i+self.c, i+self.c, i],[0,0,f(i+self.c), f(i)])
+            polygon_obj,=self.ax.fill([i,i+self.c, i+self.c, i],[0,0,f(i+self.c), f(i)], 'k')
             polygon_list.append(polygon_obj)
             return polygon_list
         
-        ani = anim.FuncAnimation(fig, animate, frames = range(self.bins), init_func = init,interval = 4,
-                                blit = True, repeat = False)
+        ani = anim.FuncAnimation(fig, animate, frames = range(self.bins), init_func = init,interval = 1,
+                                blit = False, repeat = False)
+        plt.title(f"Area: {self.area:>5.5} sq. units")
         plt.show()
         print(f"Area: {self.area:>5.5} sq. units")
 
