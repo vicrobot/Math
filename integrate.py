@@ -80,6 +80,8 @@ class Integrate:
         
         ani = anim.FuncAnimation(fig, animate, frames = range(self.bins), init_func = init,interval = 1,
                                 blit = False, repeat = False)
+        #ani.save("demo.gif", writer='imagemagick')
+
         plt.title(f"Area: {self.area:>5.5} sq. units")
         plt.show()
         print(f"Area: {self.area:>5.5} sq. units")
@@ -88,4 +90,4 @@ class Integrate:
 
 if __name__ == "__main__":
     f = lambda x: sin(x)**2   #function specified.
-    Integrate(1e-2,f,  0, pi).run()
+    Integrate(1e-1,f,  0, pi).run()
