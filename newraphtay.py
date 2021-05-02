@@ -12,7 +12,7 @@ The
 (a-b)**3 = a**3 - b**3 - 3*a*b*(a - b)
 """
 
-fx = '3*x**7 + 48*x**2 - 2*x**1 +34*x**0 -2*x**10 + 123*x**0'  # the format a*b**x is necessary.
+fx = '3*x**7 + 48*x**2 - 2*x**1 +34*x**0 -2*x**10 + 123*x**0'  # the format a*x**b is necessary.
 
 digger = re.compile('[-+]*[0-9.]+\*x\*\*[0-9.]+')
 

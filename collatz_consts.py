@@ -39,8 +39,8 @@ def f(a, x, d):
     return a
     
     
-    
-init, end = 2, 5000
+
+init, end = 2, 50
 for i in range(init, end):
     dict_nums[i] = collatz(i)
 
@@ -59,7 +59,7 @@ m = max(consts)
 print(m, consts.count(m), consts.index(m), len(consts) )
 #print(dict_nums[993])
 
-
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 #fig, (ax1, ax2) = plt.subplots(1,2)
@@ -74,7 +74,7 @@ plt.scatter(x, y)
 plt.scatter(x1, y1)
 plt.legend(['odds', 'evens'])
 plt.show()
-
+"""
 
 
 
