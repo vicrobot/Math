@@ -1,3 +1,4 @@
+"""
 def collatz(num):
     d_x = {'n':0,'ts':[]}
     if(num%2==0):
@@ -26,9 +27,15 @@ dict_nums = {}
 init, end = 2, 50
 for i in range(init, end):
     dict_nums[i] = collatz(i)
-
+"""
 #from itertools import combinations_with_replacement as cwr
-from math import floor
+from math import floor, ceil, log
+
+def max_val(n): 
+    "max_val that n lengthed cycle can pertain"
+    num = (3**(n-1))*(2**(ceil(n*log(3,2)) - n + 1) - 2)
+    denom = 2**(ceil(n*log(3,2))) - 3**n
+    return num/denom - 1
 
 def plus1(l1,u):
     if l1[-1] + 1 > u:
@@ -39,9 +46,9 @@ def plus1(l1,u):
         return l1
 
 def cyclic_contra(n):
-    u_bound = 1 + floor(0.5849625 * (n+1))  
+    u_bound = 1 + floor(0.5849625 * (n+1))
     #print('u_bound', u_bound)
-    ti_list = [1]*n
+    ti_list = [1]*(n-1) + [ceil(n*log(3,2) - n + 1)]
     while True:
         denom = 2**(sum(ti_list)) - 3**n
         #print(ti_list)
@@ -76,6 +83,7 @@ def cyclic_contra(n):
                 print("FOUND IT")
                 print(a, num, denom, ti_list, n)
             else:
+                print(f'ti_list: {ti_list}, a: {a}' )
                 #print('ti_list_after', ti_list)
                 if ti_list == len(ti_list)*[u_bound]:
                     #print('broke here 2_')
@@ -86,13 +94,12 @@ def cyclic_contra(n):
                     #print('broke here 2_')
                     break
 
-for i in range(10,15):
+"""
+for i in range(5):
     print(i)
     cyclic_contra(i)
-
-
-
-
+"""
+cyclic_contra(5)
 
 """
 def cyclic_contra(n):
