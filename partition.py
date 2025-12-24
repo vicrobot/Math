@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy.special import comb
 from sympy import factorial
 
@@ -39,6 +38,9 @@ for n in range(1,N+1):
 sarray = set(array)
 lmatrix = [list(i) for i in array]
 
+#plotting
+
+#imports
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np

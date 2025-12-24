@@ -38,26 +38,25 @@ def f(a, x, d):
         a = (3*a + 1)/2**(ts[i]) #and thus n = len(ts) if x%2 else len(ts)-1
     return a
     
-    
+if __name__ == '__main__':
+    init, end = 2, 50
+    for i in range(init, end):
+        dict_nums[i] = collatz(i)
 
-init, end = 2, 50
-for i in range(init, end):
-    dict_nums[i] = collatz(i)
+    #df = pd.DataFrame(dict_nums.values())
+    #print(dict_nums)
+    #print(df)
+    #print('-'*20)
 
-#df = pd.DataFrame(dict_nums.values())
-#print(dict_nums)
-#print(df)
-#print('-'*20)
+    consts = []
+    for x,d in dict_nums.items():
+        a = 2
+        temp = f(a*x,x,d)
+        consts.append((temp - a)/(1-a))
 
-consts = []
-for x,d in dict_nums.items():
-    a = 2
-    temp = f(a*x,x,d)
-    consts.append((temp - a)/(1-a))
-
-m = max(consts)
-print(m, consts.count(m), consts.index(m), len(consts) )
-#print(dict_nums[993])
+    m = max(consts)
+    print(m, consts.count(m), consts.index(m), len(consts) )
+    #print(dict_nums[993])
 
 """
 import numpy as np

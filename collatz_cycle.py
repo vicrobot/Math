@@ -99,7 +99,8 @@ for i in range(5):
     print(i)
     cyclic_contra(i)
 """
-cyclic_contra(5)
+if __name__ == '__main__':
+    cyclic_contra(5)
 
 """
 def cyclic_contra(n):
